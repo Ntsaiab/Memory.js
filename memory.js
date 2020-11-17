@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-11-17T05:21:16.252Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="-Xk8580xQdA04U69uh6J" version="13.9.9" type="github">
+<mxfile host="app.diagrams.net" modified="2020-11-17T05:26:41.933Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="B7-LXE_O00CfvEfyN7AR" version="13.9.9" type="github">
   <diagram id="KXOlhbb6vhF1Y1M8PHQL" name="Page-1">
     <mxGraphModel dx="966" dy="578" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -41,10 +41,10 @@
           <mxGeometry x="45" y="220" width="110" height="20" as="geometry" />
         </mxCell>
         <mxCell id="_XayCZpjFy1YTjqatBUT-11" value="reveal cards for matches on turn" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="640" y="580" width="110" height="60" as="geometry" />
+          <mxGeometry x="640" y="620" width="110" height="60" as="geometry" />
         </mxCell>
         <mxCell id="_XayCZpjFy1YTjqatBUT-12" value="Win game: Message" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="640" y="660" width="110" height="60" as="geometry" />
+          <mxGeometry x="640" y="700" width="110" height="60" as="geometry" />
         </mxCell>
         <mxCell id="_XayCZpjFy1YTjqatBUT-13" value="time: complexity" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="650" y="800" width="110" height="60" as="geometry" />
@@ -68,7 +68,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="_XayCZpjFy1YTjqatBUT-18" value="Computer&lt;br&gt;Actions" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="60" y="620" width="80" height="80" as="geometry" />
+          <mxGeometry x="60" y="670" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="_XayCZpjFy1YTjqatBUT-19" value="subject: complexity" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="650" y="870" width="110" height="60" as="geometry" />
@@ -83,7 +83,7 @@
           <mxGeometry x="640" y="180" width="110" height="60" as="geometry" />
         </mxCell>
         <mxCell id="_XayCZpjFy1YTjqatBUT-23" value="Quit Game" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="640" y="470" width="110" height="60" as="geometry" />
+          <mxGeometry x="640" y="480" width="110" height="60" as="geometry" />
         </mxCell>
         <mxCell id="_XayCZpjFy1YTjqatBUT-24" value="" style="endArrow=none;html=1;fontSize=24;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="_XayCZpjFy1YTjqatBUT-1" target="_XayCZpjFy1YTjqatBUT-22">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
