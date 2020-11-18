@@ -28,15 +28,30 @@ console.log("Yes I'm connected");
 //display you lose message if time runs out 2nd time
 
 // ==============================
+//     Cached Dom Notes
+// ==============================
+const mBoard = document.querySelector(".mBoard");
+const modal = document.querySelector(".modal");
+const playGame = document.querySelector(".play-game")
+
+
+
+// ==============================
 //     Create Game Board
 // ==============================
 
+for (let i = 1; i < 13; i++) {
+  let div = document.createElement("div");
+  div.classList.add("indivboxes");
+  mBoard.appendChild(div);
+}
+// ==============================
+//     Create Modal
+// ==============================
 
-
-
-// ===========================
-//     Cached Dom Notes
-// ===========================
+const toggleModal = () => {
+  modal.classList.toggle("open");
+}
 
 
 

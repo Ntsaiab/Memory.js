@@ -10,7 +10,7 @@ body {
     background-color: cornflowerblue;
 }
 
-.mboard {
+.mBoard {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,12 +27,34 @@ body {
     display: flex;
     background-color: lightsalmon;
     border: 2px solid darkolivegreen;
-    width: 33%;
-    height: 33%;
+    width: 30%;
+    height: 30%;
     box-sizing: border-box;
     font-size: 100px;
     text-align: center;
     justify-content: center;
+}
+
+.modal {
+    background-color: olive;
+    padding: 30px;
+    width: 50vw;
+    max-width: 500px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    top: 45%;
+    transform: translateY(-45%);
+    left:0;
+    right:0;
+    margin: auto;
+    /* display: none; */
+}
+.modal.open {
+    display: block;
+}
+p {
+    font-size: medium;
 }
 
 button {
