@@ -1,3 +1,42 @@
-* {
-    background-color: red;
+body {
+    text-align: center;
+    font-size: xx-large;
+    color: wheat;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    border: 1px solid outset black;
+    background-color: cornflowerblue;
+}
+
+.mboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    border: 2px solid darkolivegreen;
+    height: 600px;
+    width: 600px;
+    margin: 10% auto;
+    text-align: center;
+}
+
+.indivboxes {
+    display: flex;
+    background-color: lightsalmon;
+    border: 2px solid darkolivegreen;
+    width: 33%;
+    height: 33%;
+    box-sizing: border-box;
+    font-size: 100px;
+    text-align: center;
+    justify-content: center;
+}
+
+button {
+    font-size: xx-large;
+    color: wheat;
+    background-color: olive;
 }

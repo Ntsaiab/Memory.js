@@ -1,5 +1,5 @@
 console.log("Yes I'm connected");
-
+// create game board
 // create carousel pop up over board when game loads
 // user can click through carousel to read instructions
 // click begin game button.
@@ -26,4 +26,48 @@ console.log("Yes I'm connected");
 
 // 
 //display you lose message if time runs out 2nd time
+
+// ==============================
+//     Create Game Board
+// ==============================
+
+
+
+
+// ===========================
+//     Cached Dom Notes
+// ===========================
+
+
+
+
+// ==============================
+//     Create Global Variables
+// ==============================
+
+
+
+// ==============================
+//     Create User Variables
+// ==============================
+
+
+
+// ==============================
+//     Create Computer Variables
+// ==============================
+
+
+
+
+// ==============================
+//      Functions/logic
+// ==============================
+
+
+
+// ==============================
+//     Event Listeners
+// ==============================
+
 
