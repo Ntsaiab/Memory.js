@@ -34,6 +34,9 @@ console.log("Yes I'm connected");
 const mBoard = document.querySelector(".mBoard");
 const modal = document.querySelector(".modal");
 const playGame = document.querySelector(".play-game");
+const nGameBtn = document.querySelector("#ngame");
+const rLevelBtn = document.querySelector("#rlevel");
+const eGameBtn = document.querySelector("#egame");
 
 
 
@@ -41,25 +44,70 @@ const playGame = document.querySelector(".play-game");
 //     Create Game Board
 // ==============================
 
-for (let i = 1; i < 11; i++) {
+let num = 11;
+
+for (let i = 1; i < num; i++) {
   let div = document.createElement("div");
   div.classList.add("indivboxes");
   mBoard.appendChild(div);
 }
 // ==============================
-//     Create Modal
+//   Create Modal/EventLisFunc
 // ==============================
 
 const toggleModal = () => {
   modal.classList.toggle("close");
+}
+const endGame = () => {
+
 }
 
 
 
 
 // ==============================
-//     Create Global Variables
+//     Create Game Play
 // ==============================
+class GamePlay {
+  constructor(level, uscore, cscore, time) {
+    this.level = level;
+    this.uscore = uscore;
+    this.cscore =  cscore;
+    this.time = time;
+  }
+  updateStats() {
+    currStatsCon.innerHTML = `
+      <div class="stats"> Level: <span>${this.level}</span>
+      </div>
+      <div class="stats"> Player Score: <span>${this.uscore}</span>
+      </div>
+      <div class="stats"> Computer Score: <span>${this.cscore}</span>
+      </div>
+      <div class="stats"> Time: <span>${this.time}</span>
+      </div>    
+    `
+  }
+  // levelUp() {
+  //   if() {
+
+  //     this.level++;
+  //     this.updateStats();
+  //   }
+  // }
+  timeUp() {
+    setInterval(()=> {
+      this.time++;
+      this.updateStats();
+    }, 5000);
+    if(time === 5) {
+      console.log("Time is up!")
+    }
+  }
+  playerScore() {
+    
+  }
+}
+
 
 
 
@@ -77,8 +125,12 @@ const toggleModal = () => {
 
 
 // ==============================
-//      Functions/logic
+//      Functions/logic/Game Play
 // ==============================
+
+
+
+
 
 
 
@@ -87,3 +139,6 @@ const toggleModal = () => {
 // ==============================
 
 playGame.addEventListener("click", toggleModal);
+nGameBtn.addEventListener("click", toggleModal);
+// rLevelBtn.addEventListener("click",);
+//  eGameBtn.addEventListener("click",);

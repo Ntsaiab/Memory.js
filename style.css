@@ -16,7 +16,7 @@ body {
     align-items: center;
     box-sizing: border-box;
     flex-wrap: wrap;
-    border: 2px solid darkolivegreen;
+    /* border: 2px solid darkolivegreen; */
     height: 600px;
     width: 600px;
     margin: 10% auto;
@@ -27,12 +27,16 @@ body {
     display: flex;
     background-color: lightsalmon;
     border: 2px solid darkolivegreen;
-    width: 30%;
-    height: 30%;
+    width: 27%;
+    height: 27%;
     box-sizing: border-box;
     font-size: 100px;
     text-align: center;
     justify-content: center;
+    cursor: pointer;
+}
+.indivboxes:hover {
+    box-shadow: inset 0px 0px 0px 1px white;
 }
 
 .modal {
@@ -54,7 +58,7 @@ body {
     display: none;
 }
 p {
-    font-size: large;
+    font-size: x-large;
 }
 b {
     color: orange;
@@ -64,4 +68,11 @@ button {
     font-size: xx-large;
     color: wheat;
     background-color: olive;
+}
+.stats {
+    font-size: x-large;
+    color: wheat;
+    background-color: olive;
+    height: 20px;
+    width: 40px;
 }
