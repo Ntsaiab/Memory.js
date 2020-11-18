@@ -17,8 +17,8 @@ body {
     box-sizing: border-box;
     flex-wrap: wrap;
     /* border: 2px solid darkolivegreen; */
-    height: 600px;
-    width: 600px;
+    height: 300px;
+    width: 300px;
     margin: 10% auto;
     text-align: center;
 }
@@ -27,8 +27,8 @@ body {
     display: flex;
     background-color: lightsalmon;
     border: 2px solid darkolivegreen;
-    width: 27%;
-    height: 27%;
+    width: 30%;
+    height: 30%;
     box-sizing: border-box;
     font-size: 100px;
     text-align: center;
@@ -58,19 +58,19 @@ body {
     display: none;
 }
 p {
-    font-size: x-large;
+    font-size: large;
 }
 b {
     color: orange;
 }
 
 button {
-    font-size: xx-large;
+    font-size: x-large;
     color: wheat;
     background-color: olive;
 }
 .stats {
-    font-size: x-large;
+    font-size: large;
     color: wheat;
     background-color: olive;
     height: 20px;

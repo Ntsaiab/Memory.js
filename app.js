@@ -44,13 +44,15 @@ const eGameBtn = document.querySelector("#egame");
 //     Create Game Board
 // ==============================
 
-let num = 11;
+let num = 7;
 
 for (let i = 1; i < num; i++) {
   let div = document.createElement("div");
   div.classList.add("indivboxes");
   mBoard.appendChild(div);
 }
+
+
 // ==============================
 //   Create Modal/EventLisFunc
 // ==============================
@@ -100,11 +102,11 @@ class GamePlay {
       this.updateStats();
     }, 5000);
     if(time === 5) {
-      console.log("Time is up!")
+      console.log("Time is up! You lose!")
     }
   }
   playerScore() {
-    
+
   }
 }
 
@@ -112,8 +114,19 @@ class GamePlay {
 
 
 // ==============================
-//     Create User Variables
+//   Data Source
 // ==============================
+const dataSrc = [
+  ['undefined', 'let x = no variable assigned;'],
+  ['function', 'statement that performs an action'],
+  ['local scope', '{ let local = works in this code block only}'],
+  ['class constructor', 'class MemJs { constructor(learn){this.learn = learn}']
+  ['for loop', 'for(i = 0; i < 10; i++){ console.log("this message")}'],
+  ['while loop', 'let i = 0; while(i < 10){console.log("this message") i++;}']
+  ['array', 'const x = [];'],
+  ['object', 'const x = {}'],
+  ['function', 'const x = () => { };']
+]
 
 
 
@@ -127,7 +140,12 @@ class GamePlay {
 // ==============================
 //      Functions/logic/Game Play
 // ==============================
-
+mBoard.addEventListener("click", (e) => {
+  const random = Math.floor(Math.random()*dataSrc.length);
+  // let userInput = dataSrc[random];
+  // e.target.textContent = userInput;
+  console.log(dataSrc[random]);
+});
 
 
 
