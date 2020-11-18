@@ -1,12 +1,13 @@
 console.log("Yes I'm connected");
 // create game board
-// create carousel pop up over board when game loads
-// user can click through carousel to read instructions
-// click begin game button.
+// create modal to pop up over board when game loads
+// user can read instructions
+// click start game button.
 // user clicks first tile, tile reveals data
     // start timer on first click
     // create storage for data
     // create a random generator to load data in tiles everytime page refreshes
+    // or add new randomly generated data for next level play
     // display value of first tile
     // user clicks second tile, with first still visible
     // if 1st tile and 2nd tile matches stay on screen
@@ -32,7 +33,7 @@ console.log("Yes I'm connected");
 // ==============================
 const mBoard = document.querySelector(".mBoard");
 const modal = document.querySelector(".modal");
-const playGame = document.querySelector(".play-game")
+const playGame = document.querySelector(".play-game");
 
 
 
@@ -40,7 +41,7 @@ const playGame = document.querySelector(".play-game")
 //     Create Game Board
 // ==============================
 
-for (let i = 1; i < 13; i++) {
+for (let i = 1; i < 11; i++) {
   let div = document.createElement("div");
   div.classList.add("indivboxes");
   mBoard.appendChild(div);
@@ -50,7 +51,7 @@ for (let i = 1; i < 13; i++) {
 // ==============================
 
 const toggleModal = () => {
-  modal.classList.toggle("open");
+  modal.classList.toggle("close");
 }
 
 
@@ -85,4 +86,4 @@ const toggleModal = () => {
 //     Event Listeners
 // ==============================
 
-
+playGame.addEventListener("click", toggleModal);
