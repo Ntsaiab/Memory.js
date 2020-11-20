@@ -177,11 +177,9 @@ const dataSrc = {
 for (const [key, value] of Object.entries(dataSrc)) {
   mBoard.addEventListener("click", (e) => {
   console.log(`${key}`);
-  console.log(`${value}`);
+  // console.log(`${value}`); 
 });
 }
- 
-  
 
 
 

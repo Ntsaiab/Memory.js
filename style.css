@@ -57,7 +57,7 @@ body {
 .modal.close {
     display: none;
 }
-.modal2 {
+/* .modal2 {
         background-color: olivedrab;
         padding: 30px;
         width: 50vw;
@@ -70,11 +70,11 @@ body {
         left:0;
         right:0;
         margin: auto;
-        /* display: none; */
+        /* display: none; 
     }
 .modal2.open {
     display: block;
-}
+} */
 
 p {
     font-size: large;
