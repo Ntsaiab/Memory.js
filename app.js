@@ -44,7 +44,7 @@ const eGameBtn = document.querySelector("#egame");
 //     Create Game Board
 // ==============================
 
-let num = 7;
+let num = 11;
 
 for (let i = 1; i < num; i++) {
   let div = document.createElement("div");
@@ -116,17 +116,30 @@ class GamePlay {
 // ==============================
 //   Data Source
 // ==============================
-const dataSrc = [
-  ['undefined', 'let x = no variable assigned;'],
-  ['function', 'statement that performs an action'],
-  ['local scope', '{ let local = works in this code block only}'],
-  ['class constructor', 'class MemJs { constructor(learn){this.learn = learn}']
-  ['for loop', 'for(i = 0; i < 10; i++){ console.log("this message")}'],
-  ['while loop', 'let i = 0; while(i < 10){console.log("this message") i++;}']
-  ['array', 'const x = [];'],
-  ['object', 'const x = {}'],
-  ['function', 'const x = () => { };']
-]
+// const dataSrc = [ // go with object look up methods. 
+//   // called seed data.
+//   ['undefined', 'let x = ;'],
+//   ['function1', 'function x { };'],
+//   ['object1', '{ }'],
+//   ['array1', '[ ]']
+//   ['for loop', 'for(i = 0; i < 10; i++){}'],
+//   ['while loop', 'let i = 0; while(i < 10){i++;}']
+//   ['array2', 'const x = [];'],
+//   ['object2', 'const x = {}'],
+//   ['function2', 'const x = () => { };']
+// ]
+
+const dataSrc = {
+    undefined: "let x = ;",
+    function1: "function x {};",
+    arrowFunction: "const x = () => {};", 
+    object1: "{}",
+    object2: "const x = {}",
+    array1: "[]",
+    array2: "const x = [];",
+    forLoop: "for(i = 0; i < 10; i++ {})",
+    whileLoop: "let i = 0; while(i < 10) {i++}" 
+}
 
 
 
@@ -140,11 +153,25 @@ const dataSrc = [
 // ==============================
 //      Functions/logic/Game Play
 // ==============================
+
+//loop through random * element and sort. look up shuffle array
+
+  // const random = Math.floor(Math.random()*dataSrc.length);
 mBoard.addEventListener("click", (e) => {
-  const random = Math.floor(Math.random()*dataSrc.length);
+let userInput = () => {
+  for (const [key, value] of Object.entries(dataSrc)){
+  // e.target.textContent = userInput;
+  return key + value;
+}
+console.log(userInput(key, value));
+}
+
+  // if(random === random) {
+  //   // mBoard.removeEventListener("click",)
+  // }
   // let userInput = dataSrc[random];
   // e.target.textContent = userInput;
-  console.log(dataSrc[random]);
+  
 });
 
 
