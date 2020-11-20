@@ -63,6 +63,9 @@ for (let i = 1; i < num; i++) {
 const toggleModal = () => {
   modal.classList.toggle("close");
 }
+
+// THIS DOES NOT WORK. ONLY POPS UP IN THE BIGINNING DOES NOT
+// CLICK OFF.
 const toggleModal2 = () => {
    // Maybe a modal as well saying thank you for Playing
    modal2.classList.toggle("open");
