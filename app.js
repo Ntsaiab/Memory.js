@@ -33,6 +33,7 @@ console.log("Yes I'm connected");
 // ==============================
 const mBoard = document.querySelector(".mBoard");
 const modal = document.querySelector(".modal");
+const modal2 = document.querySelector(".modal2");
 const playGame = document.querySelector(".play-game");
 const nGameBtn = document.querySelector("#ngame");
 const rLevelBtn = document.querySelector("#rlevel");
@@ -44,6 +45,7 @@ const eGameBtn = document.querySelector("#egame");
 //     Create Game Board
 // ==============================
 
+//THIS WORKS CREATES GAME BOARD
 let num = 11;
 
 for (let i = 1; i < num; i++) {
@@ -57,11 +59,13 @@ for (let i = 1; i < num; i++) {
 //   Create Modal/EventLisFunc
 // ==============================
 
+// THIS WORKS TOGGLES MODAL BEGINBTN AND NEWGAME BTN
 const toggleModal = () => {
   modal.classList.toggle("close");
 }
-const endGame = () => {
-
+const toggleModal2 = () => {
+   // Maybe a modal as well saying thank you for Playing
+   modal2.classList.toggle("open");
 }
 
 
@@ -129,6 +133,7 @@ class GamePlay {
 //   ['function2', 'const x = () => { };']
 // ]
 
+// changed to object data source
 const dataSrc = {
     undefined: "let x = ;",
     function1: "function x {};",
@@ -139,7 +144,7 @@ const dataSrc = {
     array2: "const x = [];",
     forLoop: "for(i = 0; i < 10; i++ {})",
     whileLoop: "let i = 0; while(i < 10) {i++}" 
-}
+};
 
 
 
@@ -153,26 +158,27 @@ const dataSrc = {
 // ==============================
 //      Functions/logic/Game Play
 // ==============================
-
+// DECIDED TO LEAVE RANDOM OUT FOR NOW
 //loop through random * element and sort. look up shuffle array
-
-  // const random = Math.floor(Math.random()*dataSrc.length);
-mBoard.addEventListener("click", (e) => {
-let userInput = () => {
-  for (const [key, value] of Object.entries(dataSrc)){
-  // e.target.textContent = userInput;
-  return key + value;
-}
-console.log(userInput(key, value));
-}
-
-  // if(random === random) {
+// const random = Math.floor(Math.random()*dataSrc.length);
+// e.target.textContent = userInput;
+ // if(random === random) {
   //   // mBoard.removeEventListener("click",)
   // }
   // let userInput = dataSrc[random];
   // e.target.textContent = userInput;
-  
+
+
+
+// Figured out how to split key value pairs.
+for (const [key, value] of Object.entries(dataSrc)) {
+  mBoard.addEventListener("click", (e) => {
+  console.log(`${key}`);
+  console.log(`${value}`);
 });
+}
+ 
+  
 
 
 
@@ -186,4 +192,4 @@ console.log(userInput(key, value));
 playGame.addEventListener("click", toggleModal);
 nGameBtn.addEventListener("click", toggleModal);
 // rLevelBtn.addEventListener("click",);
-//  eGameBtn.addEventListener("click",);
+eGameBtn.addEventListener("click", toggleModal2);
