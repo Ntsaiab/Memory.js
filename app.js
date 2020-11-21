@@ -173,7 +173,6 @@ const dataSrc = {
   indiv6: {
     displayText: "array1",
     match: "indiv5",
-
   },
   indiv7: {
     displayText: "forLoop",
@@ -229,24 +228,35 @@ const dataSrc = {
 // 1st click click counter outside of this scope increment inside clickcounter++
 // 2nd click check for match, if match update score then reset counter
 
-  let clickcounter = 0;
- 
+  
+ let clickCounter = 0;
 console.log(indivBoxes);
 for (let indivBox of indivBoxes) {
     indivBox.addEventListener("click", (e) => {
-      console.log(indivBox);
-      indivBox.textContent = dataSrc[indivBox.id].displayText;
-      clickcounter++; 
+      
+      
+      let word = dataSrc[indivBox.id].displayText;
+      indivBox.textContent = word;
       let match = dataSrc[indivBox.id].match; 
-      console.log(match);
-      console.log(indivBox);
-      if (indivBox === match ) {
+       
+      clickCounter++; 
+      //TRYING TO MATCH THE VALUES
+      if((clickCounter === 2) && (indivBox.id === match)) {
+        console.log("yay! a match!");
+      };
+        // console.log(indivBox.id);
+        // console.log(match);
+      // console.log(word);
+      // console.log(word);
+      
+      
+      // if (indivBox === match ) {
         
       
   
-        clickcounter = 0;
-      }
-      console.log(clickcounter);
+      //   clickcounter = 0;
+      // }
+      console.log(clickCounter);
       // console.log(this.uscore);
     });
   }
