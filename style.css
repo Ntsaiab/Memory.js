@@ -91,7 +91,7 @@ button {
 .stats {
     font-size: large;
     color: wheat;
-    background-color: olive;
-    height: 20px;
-    width: 40px;
+    background-color: none;
+    height: 50px;
+    width: 70px;
 }

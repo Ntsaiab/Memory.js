@@ -40,7 +40,7 @@ const playGame = document.querySelector(".play-game");
 // const eGameBtn = document.querySelector("#egame");
 const indivBoxes = document.querySelectorAll(".indivboxes");
 const indiv1 = document.querySelector("#indiv1");
-
+const currStatsCon = document.querySelector(".stats");
 
 // ==============================
 //     Create Game Board
@@ -87,13 +87,13 @@ class GamePlay {
   }
   updateStats() {
     currStatsCon.innerHTML = `
-      <div class="stats"> Level: <span>${this.level}</span>
+      <div class="Level"> Level: <span>${this.level}</span>
       </div>
-      <div class="stats"> Player Score: <span>${this.uscore}</span>
+      <div class="uScore"> Player Score: <span>${this.uscore}</span>
       </div>
-      <div class="stats"> Computer Score: <span>${this.cscore}</span>
+      <div class="cScore"> Computer Score: <span>${this.cscore}</span>
       </div>
-      <div class="stats"> Time: <span>${this.time}</span>
+      <div class="time"> Time: <span>${this.time}</span>
       </div>    
     `
   }
@@ -109,18 +109,27 @@ class GamePlay {
       this.time++;
       this.updateStats();
     }, 5000);
-    if (time === 5) {
-      console.log("Time is up! You lose!")
-    }
+    // if (time === 5) {
+    //   console.log("Time is up! You lose!")
+    // }
   }
-  playerScore() {
-      this.uscore++;
-      updateStats();
+  player1Score() {
+    this.uscore++;
+    updateStats();
+  }
+  player2Score() {
+    this.cscore++;
+    updateStats();
   }
 }
 
 
 
+// ==============================
+//  Global Variables
+// ==============================  
+
+let beginStats = new GamePlay(10, 10, 10, 15);
 
 // ==============================
 //   Data Source
@@ -203,15 +212,18 @@ const dataSrc = {
 // ==============================
 //      Functions/logic/Game Play
 // ==============================
+
+const gameTime = () => beginStats.timeUp();
+
 // DECIDED TO LEAVE RANDOM OUT FOR NOW
 //loop through random * element and sort. look up shuffle array
 // const random = Math.floor(Math.random()*dataSrc.length);
 // e.target.textContent = userInput;
- // if(random === random) {
-  //   // mBoard.removeEventListener("click",)
-  // }
-  // let userInput = dataSrc[random];
-  // e.target.textContent = userInput;
+// if(random === random) {
+//   // mBoard.removeEventListener("click",)
+// }
+// let userInput = dataSrc[random];
+// e.target.textContent = userInput;
 
 
 
@@ -228,38 +240,38 @@ const dataSrc = {
 // 1st click click counter outside of this scope increment inside clickcounter++
 // 2nd click check for match, if match update score then reset counter
 
-  
- let clickCounter = 0;
+
+let clickCounter = 0;
 console.log(indivBoxes);
 for (let indivBox of indivBoxes) {
-    indivBox.addEventListener("click", (e) => {
-      
-      
-      let word = dataSrc[indivBox.id].displayText;
-      indivBox.textContent = word;
-      let match = dataSrc[indivBox.id].match; 
-       
-      clickCounter++; 
-      //TRYING TO MATCH THE VALUES
-      if((clickCounter === 2) && (indivBox.id === match)) {
-        console.log("yay! a match!");
-      };
-        // console.log(indivBox.id);
-        // console.log(match);
-      // console.log(word);
-      // console.log(word);
-      
-      
-      // if (indivBox === match ) {
-        
-      
-  
-      //   clickcounter = 0;
-      // }
-      console.log(clickCounter);
-      // console.log(this.uscore);
-    });
-  }
+  indivBox.addEventListener("click", (e) => {
+
+
+    let word = dataSrc[indivBox.id].displayText;
+    indivBox.textContent = word;
+    let match = dataSrc[indivBox.id].match;
+
+    clickCounter++;
+    //TRYING TO MATCH THE VALUES
+    if ((clickCounter === 2) && (indivBox.id === match)) {
+      console.log("yay! a match!");
+    };
+    // console.log(indivBox.id);
+    // console.log(match);
+    // console.log(word);
+    // console.log(word);
+
+
+    // if (indivBox === match ) {
+
+
+
+    //   clickcounter = 0;
+    // }
+    console.log(clickCounter);
+    // console.log(this.uscore);
+  });
+}
 
 
 
