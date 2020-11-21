@@ -33,11 +33,11 @@ console.log("Yes I'm connected");
 // ==============================
 const mBoard = document.querySelector(".mBoard");
 const modal = document.querySelector(".modal");
-const modal2 = document.querySelector(".modal2");
+// const modal2 = document.querySelector(".modal2");
 const playGame = document.querySelector(".play-game");
-const nGameBtn = document.querySelector("#ngame");
-const rLevelBtn = document.querySelector("#rlevel");
-const eGameBtn = document.querySelector("#egame");
+// const nGameBtn = document.querySelector("#ngame");
+// const rLevelBtn = document.querySelector("#rlevel");
+// const eGameBtn = document.querySelector("#egame");
 const indivBoxes = document.querySelectorAll(".indivboxes");
 const indiv1 = document.querySelector("#indiv1");
 
@@ -65,12 +65,12 @@ const toggleModal = () => {
   modal.classList.toggle("close");
 }
 
-// THIS DOES NOT WORK. ONLY POPS UP IN THE BIGINNING DOES NOT
-// CLICK OFF.
-const toggleModal2 = () => {
-  // Maybe a modal as well saying thank you for Playing
-  modal2.classList.toggle("open");
-}
+// // THIS DOES NOT WORK. ONLY POPS UP IN THE BIGINNING DOES NOT
+// // CLICK OFF.
+// const toggleModal2 = () => {
+//   // Maybe a modal as well saying thank you for Playing
+//   modal2.classList.toggle("open");
+// }
 
 
 
@@ -114,7 +114,8 @@ class GamePlay {
     }
   }
   playerScore() {
-
+      this.uscore++;
+      updateStats();
   }
 }
 
@@ -191,7 +192,7 @@ const dataSrc = {
     match: "indiv9",
 
   }
-}
+};
 
 // ==============================
 //     Create Computer Variables
@@ -228,11 +229,25 @@ const dataSrc = {
 // 1st click click counter outside of this scope increment inside clickcounter++
 // 2nd click check for match, if match update score then reset counter
 
+  let clickcounter = 0;
+ 
 console.log(indivBoxes);
 for (let indivBox of indivBoxes) {
     indivBox.addEventListener("click", (e) => {
       console.log(indivBox);
       indivBox.textContent = dataSrc[indivBox.id].displayText;
+      clickcounter++; 
+      let match = dataSrc[indivBox.id].match; 
+      console.log(match);
+      console.log(indivBox);
+      if (indivBox === match ) {
+        
+      
+  
+        clickcounter = 0;
+      }
+      console.log(clickcounter);
+      // console.log(this.uscore);
     });
   }
 
