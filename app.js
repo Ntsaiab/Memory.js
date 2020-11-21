@@ -4,23 +4,23 @@ console.log("Yes I'm connected");
 // user can read instructions
 // click start game button.
 // user clicks first tile, tile reveals data
-    // start timer on first click
-    // create storage for data
-    // create a random generator to load data in tiles everytime page refreshes
-    // or add new randomly generated data for next level play
-    // display value of first tile
-    // user clicks second tile, with first still visible
-    // if 1st tile and 2nd tile matches stay on screen
-    // if 1st tile and 2nd tile does not match return to base state after a specified time
+// start timer on first click
+// create storage for data
+// create a random generator to load data in tiles everytime page refreshes
+// or add new randomly generated data for next level play
+// display value of first tile
+// user clicks second tile, with first still visible
+// if 1st tile and 2nd tile matches stay on screen
+// if 1st tile and 2nd tile does not match return to base state after a specified time
 
 // create computer generated turn
-  // if 1st tile and 2nd tile matches stay on screen
-  // if 1st tile and 2nd tile does not match return to base state after a specified time
+// if 1st tile and 2nd tile matches stay on screen
+// if 1st tile and 2nd tile does not match return to base state after a specified time
 
 // create a counter for when all the board is matched 
-    // user counter
-    // computer counter
-      // display as score
+// user counter
+// computer counter
+// display as score
 
 // display You win message if user counter reaches x amount of points
 // display Computer wins if computer counter reaches x amount of points
@@ -38,7 +38,8 @@ const playGame = document.querySelector(".play-game");
 const nGameBtn = document.querySelector("#ngame");
 const rLevelBtn = document.querySelector("#rlevel");
 const eGameBtn = document.querySelector("#egame");
-
+const indivBoxes = document.querySelectorAll(".indivboxes");
+const indiv1 = document.querySelector("#indiv1");
 
 
 // ==============================
@@ -46,13 +47,13 @@ const eGameBtn = document.querySelector("#egame");
 // ==============================
 
 //THIS WORKS CREATES GAME BOARD
-let num = 11;
+// let num = 9;
 
-for (let i = 1; i < num; i++) {
-  let div = document.createElement("div");
-  div.classList.add("indivboxes");
-  mBoard.appendChild(div);
-}
+// for (let i = 1; i < num; i++) {
+//   let div = document.createElement("div");
+//   div.classList.add("indivboxes");
+//   mBoard.appendChild(div);
+// }
 
 
 // ==============================
@@ -67,8 +68,8 @@ const toggleModal = () => {
 // THIS DOES NOT WORK. ONLY POPS UP IN THE BIGINNING DOES NOT
 // CLICK OFF.
 const toggleModal2 = () => {
-   // Maybe a modal as well saying thank you for Playing
-   modal2.classList.toggle("open");
+  // Maybe a modal as well saying thank you for Playing
+  modal2.classList.toggle("open");
 }
 
 
@@ -81,7 +82,7 @@ class GamePlay {
   constructor(level, uscore, cscore, time) {
     this.level = level;
     this.uscore = uscore;
-    this.cscore =  cscore;
+    this.cscore = cscore;
     this.time = time;
   }
   updateStats() {
@@ -104,11 +105,11 @@ class GamePlay {
   //   }
   // }
   timeUp() {
-    setInterval(()=> {
+    setInterval(() => {
       this.time++;
       this.updateStats();
     }, 5000);
-    if(time === 5) {
+    if (time === 5) {
       console.log("Time is up! You lose!")
     }
   }
@@ -124,7 +125,6 @@ class GamePlay {
 //   Data Source
 // ==============================
 // const dataSrc = [ // go with object look up methods. 
-//   // called seed data.
 //   ['undefined', 'let x = ;'],
 //   ['function1', 'function x { };'],
 //   ['object1', '{ }'],
@@ -136,20 +136,62 @@ class GamePlay {
 //   ['function2', 'const x = () => { };']
 // ]
 
-// changed to object data source
+// // changed to object data source
+// const dataSrc = {
+//     gtUndefined: "let x = ;",
+//     function1: "function x {};",
+//     arrowFunction: "const x = () => {};", 
+//     object1: "{}",
+//     object2: "const x = {}",
+//     array1: "[]",
+//     array2: "const x = [];",
+//     forLoop: "for(i = 0; i < 10; i++ {})",
+//     whileLoop: "let i = 0; while(i < 10) {i++}" 
+// };
 const dataSrc = {
-    undefined: "let x = ;",
-    function1: "function x {};",
-    arrowFunction: "const x = () => {};", 
-    object1: "{}",
-    object2: "const x = {}",
-    array1: "[]",
-    array2: "const x = [];",
-    forLoop: "for(i = 0; i < 10; i++ {})",
-    whileLoop: "let i = 0; while(i < 10) {i++}" 
-};
+  indiv1: {
+    displayText: "undefined",
+    match: "indiv2",
+  },
+  indiv2: {
+    displayText: "let x = ;",
+    match: "indiv1",
+  },
+  indiv3: {
+    displayText: "object1",
+    match: "indiv4",
+  },
+  indiv4: {
+    displayText: "let x = {};",
+    match: "indiv3",
+  },
+  indiv5: {
+    displayText: "let x = [];",
+    match: "indiv6",
+  },
+  indiv6: {
+    displayText: "array1",
+    match: "indiv5",
 
+  },
+  indiv7: {
+    displayText: "forLoop",
+    match: "indiv8",
+  },
+  indiv8: {
+    displayText: "for(i = 0; i < 10; i++ {});",
+    match: "indiv7",
+  },
+  indiv9: {
+    displayText: "let i = 0; while(i < 10) {i++};",
+    match: "indiv10",
+  },
+  indiv10: {
+    displayText: "whileLoop",
+    match: "indiv9",
 
+  }
+}
 
 // ==============================
 //     Create Computer Variables
@@ -174,13 +216,25 @@ const dataSrc = {
 
 
 // Figured out how to split key value pairs.
-for (const [key, value] of Object.entries(dataSrc)) {
-  mBoard.addEventListener("click", (e) => {
-  console.log(`${key}`);
-  // console.log(`${value}`); 
-});
-}
 
+// for (const [key, value] of Object.entries(dataSrc)) {
+//   mBoard.addEventListener("click", (e) => {
+//   console.log(`${(key)}`);
+//   // console.log(`${value}`); 
+// });
+// }
+// const keys = Object.keys(dataSrc);
+
+// 1st click click counter outside of this scope increment inside clickcounter++
+// 2nd click check for match, if match update score then reset counter
+
+console.log(indivBoxes);
+for (let indivBox of indivBoxes) {
+    indivBox.addEventListener("click", (e) => {
+      console.log(indivBox);
+      indivBox.textContent = dataSrc[indivBox.id].displayText;
+    });
+  }
 
 
 
@@ -191,6 +245,6 @@ for (const [key, value] of Object.entries(dataSrc)) {
 // ==============================
 
 playGame.addEventListener("click", toggleModal);
-nGameBtn.addEventListener("click", toggleModal);
-// rLevelBtn.addEventListener("click",);
-eGameBtn.addEventListener("click", toggleModal2);
+  // nGameBtn.addEventListener("click", toggleModal);
+  // // rLevelBtn.addEventListener("click",);
+  // eGameBtn.addEventListener("click", toggleModal2);
