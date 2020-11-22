@@ -17,7 +17,7 @@ console.log("Yes I'm connected");
 // if 1st tile and 2nd tile matches stay on screen
 // if 1st tile and 2nd tile does not match return to base state after a specified time
 
-// create a counter for when all the board is matched 
+// create a counter for when all the board is matched
 // user counter
 // computer counter
 // display as score
@@ -25,48 +25,48 @@ console.log("Yes I'm connected");
 // display You win message if user counter reaches x amount of points
 // display Computer wins if computer counter reaches x amount of points
 
-// 
-//display you lose message if time runs out 2nd time
+//
+// display you lose message if time runs out 2nd time
 
 // ==============================
 //     Cached Dom Notes
 // ==============================
-const mBoard = document.querySelector(".mBoard");
-const modal = document.querySelector(".modal");
+// const mBoard = document.querySelector('.mBoard');
+const modal = document.querySelector('.modal');
 // const modal2 = document.querySelector(".modal2");
-const playGame = document.querySelector(".play-game");
+const playGame = document.querySelector('.play-game');
 // const nGameBtn = document.querySelector("#ngame");
 // const rLevelBtn = document.querySelector("#rlevel");
 // const eGameBtn = document.querySelector("#egame");
-const indivBoxes = document.querySelectorAll(".indivboxes");
-const indiv1 = document.querySelector("#indiv1");
-const currStatsCon = document.querySelector(".stats");
+const tiles = document.querySelectorAll('.tile');
+
+const currStatsCon = document.querySelector('.stats');
 
 // ==============================
 //     Create Game Board
 // ==============================
 
-//THIS WORKS CREATES GAME BOARD
+// THIS WORKS CREATES GAME BOARD
 // let num = 9;
 
 // for (let i = 1; i < num; i++) {
 //   let div = document.createElement("div");
-//   div.classList.add("indivboxes");
+//   div.classList.add("tiles");
 //   mBoard.appendChild(div);
 // }
-
 
 // ==============================
 //     Create Game Play
 // ==============================
 class GamePlay {
-  constructor(level, uscore, cscore, time) {
+  constructor (level, uscore, cscore, time) {
     this.level = level;
     this.uscore = uscore;
     this.cscore = cscore;
     this.time = time;
   }
-  updateStats() {
+
+  updateStats () {
     currStatsCon.innerHTML = `
       <div class="Level"> Level: <span>${this.level}</span>
       </div>
@@ -76,52 +76,53 @@ class GamePlay {
       </div>
       <div class="time"> Time: <span>${this.time}</span>
       </div>    
-    `
+    `;
   }
-  // levelUp() {
-  //   if() {
 
+  // levelUp() {
+  //   if(this.uscore > this.cscore || this.cscore > this.uscore) {
   //     this.level++;
   //     this.updateStats();
+  //      refresh board with new information/dificulty level
   //   }
   // }
-  timeUp() {
+  timeUp () {
     setInterval(() => {
       this.time--;
       this.updateStats();
     }, 5000);
     if (this.time === 0) {
-      console.log("Time is up! You lose!")
+      console.log('Time is up! You lose!');
     }
   }
-  player1Score() {
+
+  player1Score () {
     this.uscore++;
     this.updateStats();
   }
-  player2Score() {
+
+  player2Score () {
     this.cscore++;
     this.updateStats();
   }
 }
 
-
-
 // ==============================
 //  Global Variables
-// ==============================  
+// ==============================
 
-let beginStats = new GamePlay(10, 10, 10, 6);
-
+const beginStats = new GamePlay(10, 10, 10, 6);
+// let player1 = uscore;
+// let player2 = cscore;
 // ==============================
 //   Create Modal/EventLisFunc
 // ==============================
 
 // THIS WORKS TOGGLES MODAL BEGINBTN AND NEWGAME BTN
 const toggleModal = () => {
-  modal.classList.toggle("close");
+  modal.classList.toggle('close');
   beginStats.updateStats();
-}
-
+};
 // // THIS DOES NOT WORK. ONLY POPS UP IN THE BIGINNING DOES NOT
 // // CLICK OFF.
 // const toggleModal2 = () => {
@@ -132,7 +133,7 @@ const toggleModal = () => {
 // ==============================
 //   Data Source
 // ==============================
-// const dataSrc = [ // go with object look up methods. 
+// const dataSrc = [ // go with object look up methods.
 //   ['undefined', 'let x = ;'],
 //   ['function1', 'function x { };'],
 //   ['object1', '{ }'],
@@ -148,54 +149,54 @@ const toggleModal = () => {
 // const dataSrc = {
 //     gtUndefined: "let x = ;",
 //     function1: "function x {};",
-//     arrowFunction: "const x = () => {};", 
+//     arrowFunction: "const x = () => {};",
 //     object1: "{}",
 //     object2: "const x = {}",
 //     array1: "[]",
 //     array2: "const x = [];",
 //     forLoop: "for(i = 0; i < 10; i++ {})",
-//     whileLoop: "let i = 0; while(i < 10) {i++}" 
+//     whileLoop: "let i = 0; while(i < 10) {i++}"
 // };
 const dataSrc = {
-  indiv1: {
-    displayText: "undefined",
-    match: "indiv2",
+  tile1: {
+    displayText: 'undefined',
+    pair: 1
   },
-  indiv2: {
-    displayText: "let x = ;",
-    match: "indiv1",
+  tile2: {
+    displayText: 'let x = ;',
+    pair: 1
   },
-  indiv3: {
-    displayText: "object1",
-    match: "indiv4",
+  tile3: {
+    displayText: 'object1',
+    pair: 2
   },
-  indiv4: {
-    displayText: "let x = {};",
-    match: "indiv3",
+  tile4: {
+    displayText: 'let x = {};',
+    pair: 2
   },
-  indiv5: {
-    displayText: "let x = [];",
-    match: "indiv6",
+  tile5: {
+    displayText: 'let x = [];',
+    pair: 3
   },
-  indiv6: {
-    displayText: "array1",
-    match: "indiv5",
+  tile6: {
+    displayText: 'array1',
+    pair: 3
   },
-  indiv7: {
-    displayText: "forLoop",
-    match: "indiv8",
+  tile7: {
+    displayText: 'forLoop',
+    pair: 4
   },
-  indiv8: {
-    displayText: "for(i = 0; i < 10; i++ {});",
-    match: "indiv7",
+  tile8: {
+    displayText: 'for(i = 0; i < 10; i++ {});',
+    pair: 4
   },
-  indiv9: {
-    displayText: "let i = 0; while(i < 10) {i++};",
-    match: "indiv10",
+  tile9: {
+    displayText: 'let i = 0; while(i < 10) {i++};',
+    pair: 5
   },
-  indiv10: {
-    displayText: "whileLoop",
-    match: "indiv9",
+  tile10: {
+    displayText: 'whileLoop',
+    pair: 5
 
   }
 };
@@ -204,9 +205,6 @@ const dataSrc = {
 //     Create Computer Variables
 // ==============================
 
-
-
-
 // ==============================
 //      Functions/logic/Game Play
 // ==============================
@@ -214,7 +212,7 @@ const dataSrc = {
 const gameTime = () => beginStats.timeUp();
 
 // DECIDED TO LEAVE RANDOM OUT FOR NOW
-//loop through random * element and sort. look up shuffle array
+// loop through random * element and sort. look up shuffle array
 // const random = Math.floor(Math.random()*dataSrc.length);
 // e.target.textContent = userInput;
 // if(random === random) {
@@ -223,14 +221,12 @@ const gameTime = () => beginStats.timeUp();
 // let userInput = dataSrc[random];
 // e.target.textContent = userInput;
 
-
-
 // Figured out how to split key value pairs.
 
 // for (const [key, value] of Object.entries(dataSrc)) {
 //   mBoard.addEventListener("click", (e) => {
 //   console.log(`${(key)}`);
-//   // console.log(`${value}`); 
+//   // console.log(`${value}`);
 // });
 // }
 // const keys = Object.keys(dataSrc);
@@ -238,58 +234,77 @@ const gameTime = () => beginStats.timeUp();
 // 1st click click counter outside of this scope increment inside clickcounter++
 // 2nd click check for match, if match update score then reset counter
 
+const player1MatchArr = [];
+const player2MatchArr = [];
+let selectionArr = [];
+let turn = false;
 
-let clickCounter = 0;
- let matchArr = [];
-
-
-// console.log(indivBoxes);
-for (let indivBox of indivBoxes) {
-  indivBox.addEventListener("click", (e) => {
-    let word = dataSrc[indivBox.id].displayText;
-    indivBox.textContent = word;
-    clickCounter++;
-    
-    let match = dataSrc[indivBox.id].match;
-      const checkMatch = () => { // NO ERRORS BUT CHECKMATCH AND MATCH ARE GREYED OUT
-      matchArr.push(indivBox.id);
-     if (matchArr[1] == dataSrc[matchArr[0]].match) {
-      console.log("yay! a match!");
+// console.log(tile);
+for (const tile of tiles) {
+  // when box is clicked
+  tile.addEventListener('click', (e) => {
+    // if this tile is not in selection array and
+    // if tile is not already matched in player1 array and
+    // if tile is not already matched in player2 array
+    if (!selectionArr.includes(dataSrc[tile.id]) &&
+        !player1MatchArr.includes(dataSrc[tile.id]) &&
+        !player2MatchArr.includes(dataSrc[tile.id])) {
+      // display the content
+      const word = dataSrc[tile.id].displayText;
+      tile.textContent = word;
+      // then push tile data into selection array
+      selectionArr.push(dataSrc[tile.id]);
+      // if there are at least two tiles in the selection array
+      if (selectionArr.length >= 2) {
+        // then check match between the selected tiles
+        // if selected tiles are a match
+        if (selectionArr[0].pair === selectionArr[1].pair) {
+          // then push whole selection array into match array that corresponds with current player
+          // empty the selection array
+          if (turn === false) {
+            // pop and element from the selection array and push that element into the player1match array
+            // until the selection array is empty
+            while (selectionArr.length !== 0) {
+              player1MatchArr.push(selectionArr.pop());
+            }
+          } else {
+            // pop and element from the selection array and push that element into the player1match array
+            // until the selection array is empty
+            while (selectionArr.length !== 0) {
+              player2MatchArr.push(selectionArr.pop());
+            }
+          }
+          // toggle turn
+          turn = !turn;
+          // else empty the selection array
+        } else {
+          selectionArr = [];
+        }
+        // end if
+      }
+    // end if
     }
-  }
+    if (player1MatchArr.length === 6) {
+      console.log('Player One Wins!');
 
-   
-
-    gameTime();
-    //TRYING TO MATCH THE VALUES
-   
-  console.log(matchArr);
-    // console.log(indivBox.id);
-    // console.log(match);
-    // console.log(word);
-    // // console.log(word);
-
-
-    // if (indivBox === match ) {
-
-
-
-    //   clickcounter = 0;
-    // }
-    console.log(clickCounter);
-    // console.log(this.uscore);
+      if (player2MatchArr.length === 6) {
+        console.log('Player Two Wins!');
+      }
+    }
+    console.log('selection', selectionArr);
+    console.log('player1', player1MatchArr);
+    console.log('player2', player2MatchArr);
   });
 }
-
-
-
-
-
+// tasks
+// check if there is a winner
+// if all tiles or total points/elements in a array - win condition
+// go through selected tiles and reset tiles in selection array.
 // ==============================
 //     Event Listeners
 // ==============================
 
-playGame.addEventListener("click", toggleModal);
-  // nGameBtn.addEventListener("click", toggleModal);
-  // // rLevelBtn.addEventListener("click",);
-  // eGameBtn.addEventListener("click", toggleModal2);
+playGame.addEventListener('click', toggleModal);
+// nGameBtn.addEventListener("click", toggleModal);
+// // rLevelBtn.addEventListener("click",);
+// eGameBtn.addEventListener("click", toggleModal2);

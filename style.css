@@ -23,7 +23,7 @@ body {
     text-align: center;
 }
 
-.indivboxes {
+.tile {
     display: flex;
     background-color: lightsalmon;
     border: 2px solid darkolivegreen;
@@ -35,7 +35,7 @@ body {
     justify-content: center;
     cursor: pointer;
 }
-.indivboxes:hover {
+.tile:hover {
     box-shadow: inset 0px 0px 0px 1px white;
 }
 
