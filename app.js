@@ -57,25 +57,6 @@ const currStatsCon = document.querySelector(".stats");
 
 
 // ==============================
-//   Create Modal/EventLisFunc
-// ==============================
-
-// THIS WORKS TOGGLES MODAL BEGINBTN AND NEWGAME BTN
-const toggleModal = () => {
-  modal.classList.toggle("close");
-}
-
-// // THIS DOES NOT WORK. ONLY POPS UP IN THE BIGINNING DOES NOT
-// // CLICK OFF.
-// const toggleModal2 = () => {
-//   // Maybe a modal as well saying thank you for Playing
-//   modal2.classList.toggle("open");
-// }
-
-
-
-
-// ==============================
 //     Create Game Play
 // ==============================
 class GamePlay {
@@ -106,20 +87,20 @@ class GamePlay {
   // }
   timeUp() {
     setInterval(() => {
-      this.time++;
+      this.time--;
       this.updateStats();
     }, 5000);
-    // if (time === 5) {
-    //   console.log("Time is up! You lose!")
-    // }
+    if (this.time === 0) {
+      console.log("Time is up! You lose!")
+    }
   }
   player1Score() {
     this.uscore++;
-    updateStats();
+    this.updateStats();
   }
   player2Score() {
     this.cscore++;
-    updateStats();
+    this.updateStats();
   }
 }
 
@@ -129,7 +110,24 @@ class GamePlay {
 //  Global Variables
 // ==============================  
 
-let beginStats = new GamePlay(10, 10, 10, 15);
+let beginStats = new GamePlay(10, 10, 10, 6);
+
+// ==============================
+//   Create Modal/EventLisFunc
+// ==============================
+
+// THIS WORKS TOGGLES MODAL BEGINBTN AND NEWGAME BTN
+const toggleModal = () => {
+  modal.classList.toggle("close");
+  beginStats.updateStats();
+}
+
+// // THIS DOES NOT WORK. ONLY POPS UP IN THE BIGINNING DOES NOT
+// // CLICK OFF.
+// const toggleModal2 = () => {
+//   // Maybe a modal as well saying thank you for Playing
+//   modal2.classList.toggle("open");
+// }
 
 // ==============================
 //   Data Source
@@ -242,24 +240,34 @@ const gameTime = () => beginStats.timeUp();
 
 
 let clickCounter = 0;
-console.log(indivBoxes);
+ let matchArr = [];
+
+
+// console.log(indivBoxes);
 for (let indivBox of indivBoxes) {
   indivBox.addEventListener("click", (e) => {
-
-
     let word = dataSrc[indivBox.id].displayText;
     indivBox.textContent = word;
-    let match = dataSrc[indivBox.id].match;
-
     clickCounter++;
-    //TRYING TO MATCH THE VALUES
-    if ((clickCounter === 2) && (indivBox.id === match)) {
+    
+    let match = dataSrc[indivBox.id].match;
+      const checkMatch = () => { // NO ERRORS BUT CHECKMATCH AND MATCH ARE GREYED OUT
+      matchArr.push(indivBox.id);
+     if (matchArr[1] == dataSrc[matchArr[0]].match) {
       console.log("yay! a match!");
-    };
+    }
+  }
+
+   
+
+    gameTime();
+    //TRYING TO MATCH THE VALUES
+   
+  console.log(matchArr);
     // console.log(indivBox.id);
     // console.log(match);
     // console.log(word);
-    // console.log(word);
+    // // console.log(word);
 
 
     // if (indivBox === match ) {
