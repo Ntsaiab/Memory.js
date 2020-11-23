@@ -30,7 +30,7 @@ body {
     width: 30%;
     height: 30%;
     box-sizing: border-box;
-    font-size: 14px;
+    font-size: 20px;
     text-align: center;
     justify-content: center;
     cursor: pointer;
@@ -57,7 +57,7 @@ body {
 .modal.close {
     display: none;
 }
-.modal2 {
+/* .modal2 {
         background-color: olivedrab;
         padding: 30px;
         width: 50vw;
@@ -70,18 +70,18 @@ body {
         left:0;
         right:0;
         margin: auto;
-        /* display: none;*/ 
+        /* display: none; 
     }
 .modal2.open {
     display: block;
-}
+}*/
 
 p {
     font-size: large;
 }
 b {
     color: orange;
-}
+} 
 
 button {
     font-size: x-large;
@@ -89,7 +89,8 @@ button {
     background-color: olive;
 }
 .stats {
-    font-size: large;
+    display: inline;
+    font-size: x-large;
     color: wheat;
     background-color: none;
     height: 50px;
