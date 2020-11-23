@@ -99,13 +99,17 @@ class GamePlay {
     this.cscore++;
     this.updateStats();
   }
-}
 
+  levelUp () {
+    this.level++;
+    this.updateStats();
+  }
+}
 // ==============================
 //  Global Variables
 // ==============================
 
-const Stats = new GamePlay(0, 0, 0, 20);
+const Stats = new GamePlay(1, 0, 0, 20);
 // let player1 = uscore;
 // let player2 = cscore;
 // ==============================
@@ -206,6 +210,7 @@ const dataSrc = {
 const gameTime = () => Stats.timeUp();
 const player1Score = () => Stats.player1Score();
 const player2Score = () => Stats.player2Score();
+const levelUp = () => Stats.levelUp();
 
 // DECIDED TO LEAVE RANDOM OUT FOR NOW
 // loop through random * element and sort. look up shuffle array
@@ -264,8 +269,6 @@ for (const tile of tiles) {
             // until the selection array is empty
             while (selectionArr.length !== 0) {
               player1MatchArr.push(selectionArr.pop());
-              this.uscore = player1MatchArr.length;
-              console.log(this.uscore);
               player1Score();
             }
           } else {
@@ -273,8 +276,6 @@ for (const tile of tiles) {
             // until the selection array is empty
             while (selectionArr.length !== 0) {
               player2MatchArr.push(selectionArr.pop());
-              this.cscore = player2MatchArr.length;
-              console.log(this.cscore);
               player2Score();
             }
           }
@@ -283,6 +284,9 @@ for (const tile of tiles) {
           // else empty the selection array
         } else {
           selectionArr = [];
+          setTimeout(() => {
+            tile.textcontent = '';
+          }, 500);
           turn = !turn;
         }
         // end if
@@ -290,6 +294,7 @@ for (const tile of tiles) {
     // end if
     }
     if ((player1MatchArr.length + player2MatchArr.length) === 10) {
+      levelUp();
       if (player1MatchArr.length > player2MatchArr.length) {
         console.log('Player One Wins!');
         Msg.innerHTML = '<div class=\'Msg\'><span>Player One Wins!</span></div>';
