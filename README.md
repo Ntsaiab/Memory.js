@@ -16,7 +16,7 @@ Include logo/demo screenshot etc.
 - [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Features
-There is nothing like it on the internet.
+A simple memory matching game. That can help train beginner Javascript coders not only in the language but also improve their code recogintion and recall. There is nothing like it on the internet. 
 
 
 ## How to use?
@@ -35,4 +35,4 @@ https://medium.com/@meakaakka/a-beginners-guide-to-writing-a-kickass-readme-7ac0
 Kay Vail
 Evan James
 
-GA © [Candice Sambury]()
+GA © Candice Sambury
