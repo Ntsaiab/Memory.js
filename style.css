@@ -95,3 +95,10 @@ button {
     height: 50px;
     width: 70px;
 }
+.Msg {
+    background-color: olivedrab;
+    border-radius: 4px;
+    font-size: x-large;
+    color: whitesmoke;
+
+}

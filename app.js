@@ -39,7 +39,7 @@ const playGame = document.querySelector('.play-game');
 // const rLevelBtn = document.querySelector("#rlevel");
 // const eGameBtn = document.querySelector("#egame");
 const tiles = document.querySelectorAll('.tile');
-
+const Msg = document.querySelector('.Msg');
 const currStatsCon = document.querySelector('.stats');
 
 // ==============================
@@ -70,30 +70,24 @@ class GamePlay {
     currStatsCon.innerHTML = `
       <div class="Level"> Level: <span>${this.level}</span>
       </div>
-      <div class="uScore"> Player Score: <span>${this.uscore}</span>
+      <div class="uScore"> Player 1 Score: <span>${this.uscore}</span>
       </div>
-      <div class="cScore"> Computer Score: <span>${this.cscore}</span>
+      <div class="cScore"> Player 2 Score: <span>${this.cscore}</span>
       </div>
       <div class="time"> Time: <span>${this.time}</span>
       </div>    
     `;
   }
 
-  // levelUp() {
-  //   if(this.uscore > this.cscore || this.cscore > this.uscore) {
-  //     this.level++;
-  //     this.updateStats();
-  //      refresh board with new information/dificulty level
-  //   }
-  // }
   timeUp () {
     setInterval(() => {
       this.time--;
       this.updateStats();
+      if (this.time === 0) {
+        Msg.innerHTML = '<div class=\'Msg\'><span>Time is up! You lose!!</span></div>';
+        console.log('Time is up! You lose!');
+      }
     }, 5000);
-    if (this.time === 0) {
-      console.log('Time is up! You lose!');
-    }
   }
 
   player1Score () {
@@ -111,7 +105,7 @@ class GamePlay {
 //  Global Variables
 // ==============================
 
-const beginStats = new GamePlay(10, 10, 10, 6);
+const Stats = new GamePlay(0, 0, 0, 20);
 // let player1 = uscore;
 // let player2 = cscore;
 // ==============================
@@ -121,7 +115,7 @@ const beginStats = new GamePlay(10, 10, 10, 6);
 // THIS WORKS TOGGLES MODAL BEGINBTN AND NEWGAME BTN
 const toggleModal = () => {
   modal.classList.toggle('close');
-  beginStats.updateStats();
+  Stats.updateStats();
 };
 // // THIS DOES NOT WORK. ONLY POPS UP IN THE BIGINNING DOES NOT
 // // CLICK OFF.
@@ -209,7 +203,9 @@ const dataSrc = {
 //      Functions/logic/Game Play
 // ==============================
 
-const gameTime = () => beginStats.timeUp();
+const gameTime = () => Stats.timeUp();
+const player1Score = () => Stats.player1Score();
+const player2Score = () => Stats.player2Score();
 
 // DECIDED TO LEAVE RANDOM OUT FOR NOW
 // loop through random * element and sort. look up shuffle array
@@ -243,6 +239,8 @@ let turn = false;
 for (const tile of tiles) {
   // when box is clicked
   tile.addEventListener('click', (e) => {
+    // this starts the game timer on first click
+    gameTime();
     // if this tile is not in selection array and
     // if tile is not already matched in player1 array and
     // if tile is not already matched in player2 array
@@ -266,12 +264,18 @@ for (const tile of tiles) {
             // until the selection array is empty
             while (selectionArr.length !== 0) {
               player1MatchArr.push(selectionArr.pop());
+              this.uscore = player1MatchArr.length;
+              console.log(this.uscore);
+              player1Score();
             }
           } else {
             // pop and element from the selection array and push that element into the player1match array
             // until the selection array is empty
             while (selectionArr.length !== 0) {
               player2MatchArr.push(selectionArr.pop());
+              this.cscore = player2MatchArr.length;
+              console.log(this.cscore);
+              player2Score();
             }
           }
           // toggle turn
@@ -279,21 +283,28 @@ for (const tile of tiles) {
           // else empty the selection array
         } else {
           selectionArr = [];
+          turn = !turn;
         }
         // end if
       }
     // end if
     }
-    if (player1MatchArr.length === 6) {
-      console.log('Player One Wins!');
-
-      if (player2MatchArr.length === 6) {
+    if ((player1MatchArr.length + player2MatchArr.length) === 10) {
+      if (player1MatchArr.length > player2MatchArr.length) {
+        console.log('Player One Wins!');
+        Msg.innerHTML = '<div class=\'Msg\'><span>Player One Wins!</span></div>';
+      } else if (player1MatchArr.length < player2MatchArr.length) {
         console.log('Player Two Wins!');
+        Msg.innerHTML = '<div class=\'Msg\'><span>Player Two Wins!</span></div>';
+      } else {
+        Msg.innerHTML = '<div class=\'Msg\'><span>It\'s a tie!</span></div>';
+        console.log("It's a tie!");
       }
     }
-    console.log('selection', selectionArr);
-    console.log('player1', player1MatchArr);
-    console.log('player2', player2MatchArr);
+
+    // console.log('selection', selectionArr);
+    // console.log('player1', player1MatchArr);
+    // console.log('player2', player2MatchArr);
   });
 }
 // tasks
@@ -305,6 +316,7 @@ for (const tile of tiles) {
 // ==============================
 
 playGame.addEventListener('click', toggleModal);
+
 // nGameBtn.addEventListener("click", toggleModal);
 // // rLevelBtn.addEventListener("click",);
 // eGameBtn.addEventListener("click", toggleModal2);
