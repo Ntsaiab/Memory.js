@@ -8,7 +8,8 @@ This project exists because of my own struggles as beginner javascript coder. I 
 Javascript, CSS and HTML
  
 ## Screenshots
-Include logo/demo screenshot etc.
+/Users/candiland/SEIR/projects/MemoryJs/memoryJslogo.jpg - Logo
+/Users/candiland/SEIR/projects/MemoryJs/memoryJsbeginscreen.jpg - Beginning screen shot
 
 ## Tech/framework used
 
@@ -32,7 +33,11 @@ https://www.youtube.com/watch?v=bbb9dZotsOc - A live code for a memory game usin
 https://medium.com/free-code-camp/vanilla-javascript-tutorial-build-a-memory-game-in-30-minutes-e542c4447eae - A printed learning tool to make a memory game.
 https://medium.com/@meakaakka/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3 - A TEMPLATE for this README file.
 
-Kay Vail
-Evan James
+The squad - thank you all so much!
+Kay Vail,
+Evan James,
+Michael Coxe, 
+Tyler Kinnaird,
+Andrew W
 
 GA © Candice Sambury
